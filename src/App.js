@@ -8,6 +8,8 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />}/>
         <Route path="/about" element={<About />}/>
+        {/* Si URL n'est pas déclaré */}
+        <Route path="*" element={<Home />}/>
       </Routes>
     </BrowserRouter>
 

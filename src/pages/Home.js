@@ -1,9 +1,14 @@
 import React from 'react';
+import Anime from '../components/Anime';
+import Logo from '../components/Logo';
+import Navigation from '../components/Navigation';
 
 const Home = () => {
     return (
         <div>
-            <h1>ACCEUIL</h1>
+            <Logo/>
+            <Navigation/>
+            <Anime/>
         </div>
     );
 };
