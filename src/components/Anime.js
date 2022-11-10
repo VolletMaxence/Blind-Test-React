@@ -1,11 +1,12 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import Card from "./Card";
+import CardOpening from "./CardOpening";
 
 const Anime = () => {
     const [data, setData] = useState([]);
     const [url, setURL] = useState("");
 
+    //Se fait auto
     useEffect(() => { 
         console.log(" url : https://api.animethemes.moe/video?filter[basename-like]=%"+url+"%")
         axios
@@ -18,7 +19,8 @@ const Anime = () => {
         console.log(" url : https://api.animethemes.moe/video?filter[basename-like]=%"+url+"%")
         axios
         .get("https://api.animethemes.moe/video?filter[basename-like]=%"+url+"%")
-        .then((res) => setData(res.data.videos));
+        .then((res) => setData(res.data));
+        console.log(data)
     }
 
     return (
@@ -30,7 +32,7 @@ const Anime = () => {
             <h1>Anime</h1>
             <div className="opening">
                 {data.map((videos) => (
-                    <Card key={videos.basename} videos={videos} />
+                    <CardOpening key={videos.basename} videos={videos} />
                 ))}
             </div>
         </div>
