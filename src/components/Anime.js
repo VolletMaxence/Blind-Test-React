@@ -6,7 +6,6 @@ const Anime = () => {
     const [data, setData] = useState([]);
     const [url, setURL] = useState("");
 
-    //Se fait auto
     useEffect(() => { 
         console.log(" url : https://api.animethemes.moe/video?filter[basename-like]=%"+url+"%")
         axios
@@ -19,8 +18,7 @@ const Anime = () => {
         console.log(" url : https://api.animethemes.moe/video?filter[basename-like]=%"+url+"%")
         axios
         .get("https://api.animethemes.moe/video?filter[basename-like]=%"+url+"%")
-        .then((res) => setData(res.data));
-        console.log(data)
+        .then((res) => setData(res.data.videos));
     }
 
     return (
