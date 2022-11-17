@@ -1,11 +1,15 @@
+import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import About from "./pages/About";
 import BlindTest from "./pages/BlindTest";
 import ConfigBlindTest from "./pages/ConfigBlindTest";
 import Home from "./pages/Home";
 import WaitingRoomBlindTest from "./pages/WaitingRoomBlindTest";
+import { auth } from "./utilis/firebase.config";
+import { onAuthStateChanged } from "firebase/auth";
 
 const App = () => {
+
   return (
     <BrowserRouter>
       <Routes>
@@ -18,7 +22,6 @@ const App = () => {
         <Route path="*" element={<Home />}/>
       </Routes>
     </BrowserRouter>
-
     );
 };
 

@@ -1,13 +1,12 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import Card from "./Card";
+import Card from "./CardOpening";
 
 const Anime = () => {
     const [data, setData] = useState([]);
     const [url, setURL] = useState("");
 
-    useEffect(() => { 
-        console.log(" url : https://api.animethemes.moe/video?filter[basename-like]=%"+url+"%")
+    useEffect(() => {
         axios
         .get("https://api.animethemes.moe/video?filter[basename-like]=%"+url+"%")
         .then((res) => setData(res.data.videos));
@@ -15,7 +14,6 @@ const Anime = () => {
 
     function upadteUseEffect()
     {
-        console.log(" url : https://api.animethemes.moe/video?filter[basename-like]=%"+url+"%")
         axios
         .get("https://api.animethemes.moe/video?filter[basename-like]=%"+url+"%")
         .then((res) => setData(res.data.videos));
@@ -24,7 +22,7 @@ const Anime = () => {
     return (
         
         <div className="anime">
-            <div className="searchName">
+            <div className="searchAnime">
                 <input type="text" defaultValue={url} onChange={(e) => setURL(e.target.value, upadteUseEffect())}/>
             </div>
             <h1>Anime</h1>

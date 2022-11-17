@@ -1,10 +1,10 @@
 import React from "react";
 
-const Card = ({videos}) => {
+const CardOpening = ({videos}) => {
     return (
         <div className="card">            
             <div className="infos">
-                <h2> {videos.basename}</h2>
+                <h2> {videos.filename}</h2>
             </div>
             <video width="550" controls preload="none">
                 <source src={videos.link} type="video/webm"/>
@@ -13,4 +13,4 @@ const Card = ({videos}) => {
     );
 };
 
-export default Card;
+export default CardOpening;

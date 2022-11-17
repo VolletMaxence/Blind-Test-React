@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { firebaseAuth } from '../environment/config';
+import { firebaseAuth } from '../utilis/firebase.config';
+import BlindTestGame from './BlindTestGame';
 
 const year = [
     {
@@ -104,14 +105,13 @@ const year = [
     },
   ];
 
-var url ="https://api.animethemes.moe/audio?sort=random&page[size]=1";
+var url ="https://api.animethemes.moe/video?sort=random&page[size]=1";
 var varYear = "";
 var varSeason = "";
 
-class SelectYear extends Component {
+class SelectBlindTestParameters extends Component {
     constructor(props) {
         super(props);
-        this.signIn();
         this.state = {
           year: "",
           season: "",
@@ -119,56 +119,32 @@ class SelectYear extends Component {
     
         this.setYear = this.setYear.bind(this);
         this.setSeason = this.setSeason.bind(this);
-      }
-
-      componentDidMount() {
-        console.log("componentDidMount");
-        this.signIn();
-      }
-
-      signIn() {
-        console.log("SignIn");
-
-        //Se coo anonyme
-        firebaseAuth.signInAnonymously()
-            .then(() => this.props.navigation.navigate('Home',{type:'anonymous'}))
-            .catch(error => {
-                this.setState({ errorMessage: error.message }, () => {
-                    console.log(this.state.errorMessage);
-                    
-                })
-            });
-        }
+    }
         
-      setYear(e) {
-        console.log("setYear");
+    setYear(e) {
         varYear = e.target.value;
         this.setState({ year: e.target.value });
         if(varYear === "") 
         {
-            url = "https://api.animethemes.moe/audio?filter[path-like]="+varYear+"%&sort=random&page[size]=1";
+            url = "https://api.animethemes.moe/video?filter[path-like]="+varYear+"%&sort=random&page[size]=1";
         }else 
         {
-            url = "https://api.animethemes.moe/audio?filter[path-like]="+varYear+"/"+varSeason+"%&sort=random&page[size]=1";
+            url = "https://api.animethemes.moe/video?filter[path-like]="+varYear+"/"+varSeason+"%&sort=random&page[size]=1";
         }
-        console.log(url);
     }
       
     setSeason(e) {
-        console.log("setSeason");
         varSeason = e.target.value;
-        console.log({year: e.target.value});
         this.setState({ season: e.target.value });
         if(varYear === "60%s" || varYear === "70%s" || varYear === "80%s" || varYear === "90%s" || varYear === "2000%s")
         {
-            url = "https://api.animethemes.moe/audio?filter[path-like]="+varYear+"%&sort=random&page[size]=1";
+            url = "https://api.animethemes.moe/video?filter[path-like]="+varYear+"%&sort=random&page[size]=1";
         } else 
         {
-            url = "https://api.animethemes.moe/audio?filter[path-like]="+varYear+"/"+varSeason+"%&sort=random&page[size]=1";
+            url = "https://api.animethemes.moe/video?filter[path-like]="+varYear+"/"+varSeason+"%&sort=random&page[size]=1";
         }
-        console.log(url);
     }
-    
+
     render () {
         return (
             <div>
@@ -187,6 +163,7 @@ class SelectYear extends Component {
                             ))}
                         </select>
                     </div>
+                    <BlindTestGame key={url} url={url}/>
                 </div>
                 
                 <Link
@@ -200,4 +177,4 @@ class SelectYear extends Component {
   }
 };
 
-export default SelectYear;
+export default SelectBlindTestParameters;
