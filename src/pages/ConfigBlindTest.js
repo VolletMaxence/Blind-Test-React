@@ -4,7 +4,7 @@ import Navigation from '../components/Navigation';
 import SelectBlindTest from '../components/SelectBlindTest';
 import ConnectModal from '../components/ConnectModal';
 //import { onAuthStateChanged, signOut } from 'firebase/auth';
-import { auth } from '../utilis/firebase.config';
+//import { auth } from '../utilis/firebase.config';
 import BlindTestGame from '../components/BlindTestGame';
 
 const ConfigBlindTest = () => {
@@ -36,17 +36,19 @@ const ConfigBlindTest = () => {
     ) : (
         <ConnectModal/>
     )}
+
+                    {user && (
+                    <div className="user-infos">
+                        <h4>{user?.displayName}</h4>
+                    </div>
+                )}
     */
     return (
         <div>
             <Logo/>
             <Navigation/>
             <div className="app-header">
-                {user && (
-                    <div className="user-infos">
-                        <h4>{user?.displayName}</h4>
-                    </div>
-                )}
+
 
                 <SelectBlindTest/>
 

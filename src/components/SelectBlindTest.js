@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { firebaseAuth } from '../utilis/firebase.config';
+//import { firebaseAuth } from '../utilis/firebase.config';
 import BlindTestGame from './BlindTestGame';
 
 const year = [
