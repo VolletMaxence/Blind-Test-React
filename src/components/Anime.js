@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import Card from "./CardOpening";
+import CardOpening from "./CardOpening";
 
 const Anime = () => {
     const [data, setData] = useState([]);
@@ -28,7 +28,7 @@ const Anime = () => {
             <h1>Anime</h1>
             <div className="opening">
                 {data.map((videos) => (
-                    <Card key={videos.basename} videos={videos} />
+                    <CardOpening key={videos.basename} videos={videos} />
                 ))}
             </div>
         </div>
