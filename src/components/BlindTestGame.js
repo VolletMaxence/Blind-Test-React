@@ -23,7 +23,7 @@ const BlindTestGame = ({url}) => {
 
     }, [])
     */
-
+    
     function newGame()
     {
         setShowResults(true);
@@ -129,7 +129,7 @@ const BlindTestGame = ({url}) => {
     }
 
     return (
-        <div>
+        <div className="noScroll">
             <div className='select-container'>
                 <button onClick={newGame}>
                     Lancer la Game

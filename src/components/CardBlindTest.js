@@ -9,9 +9,6 @@ function startTimer() {
         console.log("30 secondes sont passer")
          }, 30000)
 }
-
-
-
 */
 
 
