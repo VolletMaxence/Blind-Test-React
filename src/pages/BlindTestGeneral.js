@@ -2,17 +2,15 @@ import React from 'react';
 import Logo from '../components/Logo';
 import Navigation from '../components/Navigation';
 import SelectBlindTest from '../components/SelectBlindTest';
-//import { onAuthStateChanged, signOut } from 'firebase/auth';
-//import { auth } from '../utilis/firebase.config';
-import '../assets/style/scroll.scss';
 
+//var location = window.location.pathname;
 const BlindTestGeneral = () => {
+
     return (
-        <div>
+        <div class="noScroll">
             <Logo/>
             <Navigation/>
             <div className="app-header">
-
 
                 <SelectBlindTest/>
 

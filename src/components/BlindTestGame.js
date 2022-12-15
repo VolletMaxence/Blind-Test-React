@@ -14,15 +14,6 @@ const BlindTestGame = ({url}) => {
     const [showResults, setShowResults] = useState(false)
 
     const [input, setInput] = useState("");
-    /*
-    useEffect(() => { 
-        console.log(" url useEffect : "+url)
-        axios
-        .get(url)
-        .then((res) => setData(res.data.videos), console.log(data));
-
-    }, [])
-    */
     
     function newGame()
     {

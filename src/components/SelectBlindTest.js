@@ -105,11 +105,21 @@ const year = [
     },
   ];
 
+const MODAL_OPEN_CLASS = "body--modal-open";
+
 var url ="https://api.animethemes.moe/video?sort=random&page[size]=1";
 var varYear = "";
 var varSeason = "";
 
 class SelectBlindTestParameters extends Component {
+    componentDidMount() {
+        document.body.classList.add(MODAL_OPEN_CLASS);
+    }
+
+    componentWillUnmount() {
+        document.body.classList.remove(MODAL_OPEN_CLASS);
+    }
+
     constructor(props) {
         super(props);
         this.state = {
