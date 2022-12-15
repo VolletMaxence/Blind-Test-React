@@ -2,6 +2,7 @@ import React from 'react';
 import Logo from '../components/Logo';
 import Navigation from '../components/Navigation';
 import SelectBlindTest from '../components/SelectBlindTest';
+import "../styles/scroll.scss"
 
 //var location = window.location.pathname;
 const BlindTestGeneral = () => {
